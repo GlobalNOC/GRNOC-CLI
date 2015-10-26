@@ -1,0 +1,37 @@
+GRNOC::CLI v1.0.2-2 -- Wedn Jan 14 2015
+=======================================
+
+Bug Fixes:
+
+ * ISSUE=10108 Fixed broken get_password method in 1.0.2
+
+
+
+GRNOC::CLI v1.0.2 -- Wedn Dec 10 2014
+=====================================
+
+Features:
+
+ * ISSUE=9960 Added a "confirm" method to the library which allows for easy
+prompting of "yes/no" style questions.
+
+
+
+GRNOC::CLI v1.0.1 -- Fri Apr 19 2013
+====================================
+
+Features:
+
+ * ISSUE=5903 dont print a new line when prompting for user input
+
+Bug Fixes:
+
+ * ISSUE=5903 fixed issue where default values weren't being accepted when a pattern regex was supplied
+
+
+GRNOC::CLI v1.0.0 -- Sat Mar 02 2013
+====================================
+
+Features:
+
+ * Initial Release       
