@@ -1,0 +1,10 @@
+venv
+*.tar.gz
+*.bak
+MYMETA.json
+MYMETA.yml
+Makefile
+Makefile.old
+MANIFEST
+blib
+pm_to_blib
