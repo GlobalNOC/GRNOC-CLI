@@ -3,9 +3,9 @@ package GRNOC::CLI;
 use strict;
 use warnings;
 
+use lib '/opt/grnoc/venv/perl-GRNOC-CLI/lib/perl5';
 use Carp;
 
-use lib '/opt/grnoc/venv/perl-GRNOC-CLI/lib/perl5';
 use Term::ProgressBar;
 use Term::ReadKey;
 
