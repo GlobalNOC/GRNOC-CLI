@@ -3,13 +3,12 @@ package GRNOC::CLI;
 use strict;
 use warnings;
 
-use lib '/opt/grnoc/venv/perl-GRNOC-CLI/lib/perl5';
 use Carp;
 
 use Term::ProgressBar;
 use Term::ReadKey;
 
-our $VERSION = "1.0.3";
+our $VERSION = "1.0.2";
 
 =head1 NAME
 

@@ -7,10 +7,8 @@ use ExtUtils::MakeMaker;
 use FindBin;
 
 sub MY::postamble { <<"END"; }
-venv:
-	carton install --deployment --path=venv
 
-rpm:  manifest dist
+rpm: dist
 	rpmbuild -ta GRNOC-CLI-\$(VERSION).tar.gz
 
 test_jenkins :
@@ -26,5 +24,5 @@ WriteMakefile(
               PREREQ_PM => {
                            },
               dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-              clean               => { FILES => 'GRNOC-CLI* venv' },
+              clean               => { FILES => 'GRNOC-CLI*' },
              );

@@ -1,6 +1,0 @@
-^\.git/
-^\.github/
-^docker/
-^MANIFEST\..*
-^Makefile\.old$
-^\.gitignore

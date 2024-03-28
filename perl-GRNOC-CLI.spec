@@ -1,25 +1,16 @@
-%global debug_package %{nil} # Don't generate debug info
-%define perl_lib /opt/grnoc/venv/
-%define specfile_deps %(cat cpanfile | sed -r 's/^requires ([^[:space:]]*)/Requires: perl(\\1)/' | sed 's/["'"'"';]//g')
-AutoReqProv: no # Keep rpmbuild from trying to figure out Perl on its own
 Name: perl-GRNOC-CLI
-Version: 1.0.3
-Release: 1%{?dist}
+Version: 1.0.2
+Release: 2%{?dist}
 Summary: GRNOC CLI utility library
 License: GRNOC
 Group: Development/Libraries
 URL: http://globalnoc.iu.edu
 Source0: GRNOC-CLI-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-%if 0%{rhel} == 8
-BuildArch: x86_64
-%else
 BuildArch: noarch
-%endif
 Requires: perl >= 5.8.8
-%if 0%{?rhel} == 7
-%{specfile_deps}
-%endif
+Requires: perl-Term-ProgressBar
+Requires: perl-TermReadKey
 
 %description
 The GRNOC::CLI library is a set of standardized actions that are common in CLI scripts.
@@ -32,11 +23,7 @@ The GRNOC::CLI library is a set of standardized actions that are common in CLI s
 make
 
 %install
-%if 0%{rhel} == 8
-%{__install} -d -p %{buildroot}%{perl_lib}%{name}/lib/perl5
-cp -r venv/lib/perl5/* -t %{buildroot}%{perl_lib}%{name}/lib/perl5
-%endif
-# rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 make pure_install
 
 # clean up buildroot
@@ -52,9 +39,6 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %files
-%if %{rhel} == 8
-%{perl_lib}/%{name}/lib/perl5/*
-%endif
 %defattr(-,root,root,-)
 %{perl_vendorlib}/GRNOC/CLI.pm
 
